@@ -1,0 +1,4 @@
+nasm shell.asm -o code1.bin
+gcc shellcode.c -nostdlib -fPIC -c -o code2.o
+objcopy -O binary --only-section=.text code2.o code2.bin
+copy code1.bin+code2.bin shellcode.bin
